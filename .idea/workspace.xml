@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8f1fb48e-1ff8-4667-8f72-5ace8520a008" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/kob/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/config/RequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/controller/user/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/service/impl/UserDetailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/service/impl/utils/UserDetailImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/backend/src/test/java/com/kob/backend/testEncodePwd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.annotation.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kob/lib/javax.transaction.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kob/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/src/views/HomeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/acapp/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kob/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/controller/pk/BotInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/kob/backend/src/main/java/com/kob/backend/controller/pk/BotInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kob/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/backend/src/test/java/com/kob/backend/BackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/kob/backend/src/test/java/com/kob/backend/BackendApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kob/web" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/kob" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2MlILYFhJwL6wwromF8ZL2fn7HD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f1fb48e-1ff8-4667-8f72-5ace8520a008" name="Changes" comment="" />
+      <created>1678335689627</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678335689627</updated>
+      <workItem from="1678335690789" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
