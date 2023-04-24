@@ -21,6 +21,7 @@ public class RegisterController {
         String botName = map.get("botName");
         String botPwd = map.get("botPwd");
         String confirmedPwd = map.get("confirmedPwd");
-        return registerService.register(botName, botPwd, confirmedPwd);
+        String phone = map.get("phone");
+        return registerService.register(botName, botPwd, confirmedPwd, phone);
     }
 }

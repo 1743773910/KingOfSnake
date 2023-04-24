@@ -1,5 +1,7 @@
 package kob.backend.service.impl.user;
 
+import kob.backend.mapper.PhoneMapper;
+import kob.backend.pojo.Phone;
 import kob.backend.service.user.account.RegisterService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import kob.backend.mapper.UserMapper;
@@ -17,11 +19,12 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private UserMapper userMapper;
-
+    @Autowired
+    private PhoneMapper phoneMapper;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
-    public Map<String, String> register(String botName, String botPwd, String confirmPwd) {
+    public Map<String, String> register(String botName, String botPwd, String confirmPwd, String phone) {
         Map<String, String> map = new HashMap<>();
         if(botName == null || botName.trim().length() == 0){
             map.put("message", "用户名不能为空");
@@ -59,6 +62,11 @@ public class RegisterServiceImpl implements RegisterService {
         User user = new User(null, botName, encodedPwd, 1500, photo);
         userMapper.insert(user);
         map.put("message", "success");
+
+        if(phone != null && !phone.equals("")){
+            Phone phone1 = new Phone(null,phone,user.getBotName());
+            phoneMapper.insert(phone1);
+        }
         return map;
     }
 }

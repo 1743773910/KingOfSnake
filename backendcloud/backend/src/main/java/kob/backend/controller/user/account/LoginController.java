@@ -16,7 +16,8 @@ public class LoginController {
     public Map<String, String> getToken(@RequestParam Map<String, String> map){
         String botName = map.get("botName");
         String botPwd = map.get("botPwd");
-        return loginService.getToken(botName, botPwd);
+        String phone = map.get("phone");
+        return loginService.getToken(botName, botPwd, phone);
     }
 
 }

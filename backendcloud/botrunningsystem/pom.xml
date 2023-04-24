@@ -10,7 +10,7 @@
         <version>3.0.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.kob.botrunningsystem</groupId>
+    <groupId>com.codesystem.botrunningsystem</groupId>
     <artifactId>botrunningsystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
@@ -73,7 +73,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--这里写上main方法所在类的路径-->
                 <configuration>
-                    <mainClass>com.kob.botrunningsystem.BotRunningSystemApplication</mainClass>
+                    <mainClass>com.codesystem.botrunningsystem.BotRunningSystemApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

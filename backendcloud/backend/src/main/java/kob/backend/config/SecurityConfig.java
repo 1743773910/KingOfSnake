@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/user/account/token/", "/api/user/account/register/", "/api/pk/start/game/", "/api/pk/receive/bot/move/").permitAll()
+                .requestMatchers("/api/leavemessage/getroast/","/api/leavemessage/postroast/","/api/shopping/botshop/", "/api/user/account/token/", "/api/user/account/register/", "/api/user/account/info/","/api/pk/start/game/", "/api/pk/receive/bot/move/","/api/user/account/tokenByPhone/","/api/user/subuser/querylist/","/api/shopping/botshopadd/","/api/shopping/getcart/").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated();
 

@@ -1,5 +1,7 @@
 package kob.backend.service.impl.user;
 
+import kob.backend.mapper.PhoneMapper;
+import kob.backend.pojo.Phone;
 import kob.backend.service.impl.utils.UserDetailImpl;
 import kob.backend.service.user.account.LoginService;
 import kob.backend.utils.JwtUtil;
@@ -18,8 +20,10 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private PhoneMapper phoneMapper;
     @Override
-    public Map<String, String> getToken(String botName, String botPwd) {
+    public Map<String, String> getToken(String botName, String botPwd, String phone) {
         // 存加密的name和pwd
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(botName, botPwd);
         Authentication authentication = authenticationManager.authenticate(authenticationToken); // 登录失败会自动处理
@@ -32,6 +36,11 @@ public class LoginServiceImpl implements LoginService {
         Map<String, String> map = new HashMap<>();
         map.put("message", "success");
         map.put("token", jwt);
+
+        if(phone != null && !phone.equals("")){
+            Phone phone1 = new Phone(null,phone,user.getBotName());
+            phoneMapper.insert(phone1);
+        }
 
         return map;
     }

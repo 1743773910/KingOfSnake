@@ -10,7 +10,7 @@
         <version>3.0.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.kob.matchingsystem</groupId>
+    <groupId>com.codesystem.matchingsystem</groupId>
     <artifactId>matchingsystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -60,7 +60,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--这里写上main方法所在类的路径-->
                 <configuration>
-                    <mainClass>com.kob.matchingsystem.MatchingSystemApplication</mainClass>
+                    <mainClass>com.codesystem.matchingsystem.MatchingSystemApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
