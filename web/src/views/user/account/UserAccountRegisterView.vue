@@ -44,16 +44,18 @@ export default{
         const register = () => {
             message.value = "";
             $.ajax({
-                url : "http://localhost:3000/user/account/register/",
+                url : "http://localhost:3000/api/user/account/register/",
                 type : "post",
                 data : {
                     botName : botName.value,
                     botPwd : botPwd.value,
                     confirmedPwd : confirmedPwd.value,
+                    phone : store.state.user.phone,
                 },
                 success(resp) {
                     if(resp.message === "success") {
                         router.push({name : "user_account_login"});
+                        store.commit("updatePhone","");
                     }else{
                         message.value = resp.message;
                     }

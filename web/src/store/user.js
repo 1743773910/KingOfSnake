@@ -6,6 +6,9 @@ export default{
         botName:"",
         photo:"",
         token:"",
+        phone:"",
+        shopcartarray:[],
+        shopcartarraycnt:[],
         is_login:false,
         pulling_info : true, // 是否正在从云端拉取信息
     },
@@ -30,12 +33,39 @@ export default{
         },
         updatePullingInfo(state, pulling_info){
             state.pulling_info = pulling_info;
-        }
+        },
+        updatePhone(state,phone){
+            state.phone = phone;
+        },
+        addShoptoCart(state,number){
+            for(let i = 0; i < state.shopcartarray.length; i++){
+                if(state.shopcartarray[i] === number) return;
+            }
+            state.shopcartarray.push(number);
+            state.shopcartarraycnt.push(1);
+            localStorage.setItem("arraycnt", state.shopcartarraycnt);
+        },
+        delShopFromCart(state, number){
+            for(let i = 0; i < state.shopcartarray.length; i++){
+                if(state.shopcartarray[i] === number){
+                    state.shopcartarray.splice(i,1);
+                    state.shopcartarraycnt.splice(i,1);
+                }
+            }
+        },
+        addShoptoCartCnt(state,data){
+            for(let i = 0; i < state.shopcartarray.length; i++){
+                if(state.shopcartarray[i] === data.number){
+                    state.shopcartarraycnt[i] = data.cnt;
+                }
+            }
+        },
     },
     actions: {
+        
         login(context, data){
             $.ajax({
-                url: "http://localhost:3000/user/account/token/",
+                url: "http://localhost:3000/api/user/account/token/",
                 type: "post",
                 data: {
                     botName:data.botName,
@@ -56,9 +86,55 @@ export default{
             });
         },
 
+        loginByPhone(context, data){
+            $.ajax({
+                url: "http://localhost:3000/api/user/account/tokenByPhone/",
+                type : "post",
+                data : {
+                    phone : data.phone,
+                    code : data.code,
+                    method : data.method,
+                },
+                success(resp){
+                    if(resp.message === 'success'){
+                        localStorage.setItem("jwt_token", resp.token);
+                        context.commit("updateToken", resp.token);
+                        data.success(resp);
+                    }else{
+                        data.error(resp);
+                    }
+                },
+                error(resp){
+                    data.error(resp);
+                }
+            });
+        },
+
+        sendCode(context, data){
+            $.ajax({
+                url: "http://localhost:3000/api/user/account/tokenByPhone/",
+                type : "post",
+                data : {
+                    phone : data.phone,
+                    code : data.code,
+                    method : data.method,
+                },
+                success(resp){
+                    if(resp.message === 'success'){
+                        data.success(resp);
+                    }else{
+                        data.error(resp);
+                    }
+                },
+                error(resp){
+                    data.error(resp);
+                }
+            });
+        },
+
         getinfo(context, data){
             $.ajax({
-                url: "http://localhost:3000/user/account/info/",
+                url: "http://localhost:3000/api/user/account/info/",
                 type: "get",
                 headers:{
                     Authorization : "Bearer " + context.state.token,

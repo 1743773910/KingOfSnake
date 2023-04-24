@@ -36,8 +36,8 @@
                 <li class="page-item">
                     <a class="page-link" @click="click_page(-2)" href="#">上一页</a>
                 </li>
-                <li v-for="page in pages" :key="page.number" :class="'page-item ' + page.is_active" @click="click_page(page.number)">
-                    <a class="page-link" href="#">{{ page.number }}</a>
+                <li v-for="page in pages" :key="page.number" :class="'page-item ' + page.is_active" >
+                    <a class="page-link" href="#" @click="click_page(page.number)">{{ page.number }}</a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" href="#" @click="click_page(-1)">下一页</a>
@@ -70,7 +70,7 @@ export default{
         const pull_page = page => {
             current_page = page;
             $.ajax({
-                url : "http://localhost:3000/record/getlist/",
+                url : "http://localhost:3000/api/record/getlist/",
                 data : {
                     page,
                 },

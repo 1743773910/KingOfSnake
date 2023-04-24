@@ -54,9 +54,6 @@
                         </div>
                     </div>
 
-
-
-
                     <div class="cart-body">
                         <table class="table table-dark table-striped">
                             <thead>
@@ -150,7 +147,7 @@ export default{
 
         const refresh_subbots = () => {
             $.ajax({
-            url : "http://localhost:3000/user/subuser/querylist/",
+            url : "http://localhost:3000/api/user/subuser/querylist/",
             type : "get",
             headers : {
                 Authorization : "Bearer " + store.state.user.token,
@@ -170,7 +167,7 @@ export default{
         const add_bot = () =>{
             botadd.message = "";
             $.ajax({
-                url : "http://localhost:3000/user/subuser/add/",
+                url : "http://localhost:3000/api/user/subuser/add/",
                 type : "post",
                 data : {
                     subbotName : botadd.subbotName,
@@ -200,7 +197,7 @@ export default{
 
         const remove_bot = (subbotid) =>{
             $.ajax({
-                url : "http://localhost:3000/user/subuser/remove/",
+                url : "http://localhost:3000/api/user/subuser/remove/",
                 type : "post",
                 data : {
                     subuser_id : subbotid
@@ -218,7 +215,7 @@ export default{
 
         const update_bot = (subbot) =>{
             $.ajax({
-                url : "http://localhost:3000/user/subuser/update/",
+                url : "http://localhost:3000/api/user/subuser/update/",
                 type : "post",
                 data : {
                     subuser_id : subbot.id,

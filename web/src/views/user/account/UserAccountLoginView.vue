@@ -11,6 +11,7 @@
                         <label for="botPwd" class="form-label">密码</label>
                         <input v-model="botPwd" type="password" class="form-control" id="botPwd" placeholder="密码">
                     </div>
+                    <div><router-link :to="{name : 'user_account_loginByPhone'}">手机号登录</router-link></div>
                     <div class="message">{{ message }}</div>
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>
@@ -43,6 +44,7 @@ export default{
                 success(){
                     router.push({name : "home"});
                     store.commit("updatePullingInfo",false);
+                    store.commit("updatePhone","");
                 },
                 error(){
                     store.commit("updatePullingInfo",false);
@@ -57,6 +59,7 @@ export default{
             store.dispatch("login", {
                 botName : botName.value,
                 botPwd : botPwd.value,
+                phone : store.state.user.phone,
                 success(){
                     // 获取用户信息
                     store.dispatch("getinfo", {
@@ -64,10 +67,10 @@ export default{
                             router.push({name : "home"}); // 登录成功页面跳转
                         }
                     })
+                    
                 },
                 error(resp){
                     message.value = "用户名或密码错误";
-                    console.log(resp);
                 }   
             })
         }

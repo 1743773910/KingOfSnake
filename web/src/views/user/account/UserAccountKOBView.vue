@@ -1,16 +1,16 @@
 <template>
     <Common>
-        对局
+        <slot>MyAccount</slot>
     </Common>
 </template>
 
+
 <script>
 import Common from "@/components/common.vue"
-import { Comment } from "vue";
 
 export default{
-    components: {
-        Common
+    components : {
+        Common,
     }
 }
 </script>
@@ -18,3 +18,12 @@ export default{
 <style scoped>
 
 </style>
+
+
+
+
+
+
+
+
+

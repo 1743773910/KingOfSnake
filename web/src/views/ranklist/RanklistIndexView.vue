@@ -1,14 +1,16 @@
 <template>
     <div class="col-10">
-        <table class="table table-dark table-striped" style="margin-top: 15px; margin-left: 120px;">
+        <table class="table table-dark table-striped" style="margin-top: 15px; margin-left: 150px;">
             <thead>
                 <tr>
+                    <th style="text-align: center;">排行</th>
                     <th style="text-align: center;">玩家</th>
                     <th style="text-align: center;">天梯分</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users"  :key="user.id" style="text-align: center;">
+                <tr v-for="user,index in users"  :key="index" style="text-align: center;">
+                    <td>{{ (current_page-1)*10+index+1 }}</td>
                     <td>
                         <img src="@/assets/images/paimeng.jpg" class="record-user-photo">
                         &nbsp;
@@ -18,6 +20,8 @@
                 </tr>
             </tbody>
         </table>
+        
+        <div style="text-align:right;margin-bottom: 10px;color: darkgrey ;">注:排行榜每隔5分钟更新一次</div>
 
         <nav aria-label="...">
             <ul class="pagination" style="float: right;">
@@ -48,16 +52,16 @@ export default{
 
     setup() {
         const store = useStore();
-        let current_page = 1;
+        let current_page = ref(1);
         let users = ref([]);
         let total_users = 0;
         let pages = ref([]);
 
         // =page表示传过来一个page
         const pull_page = page => {
-            current_page = page;
+            current_page.value = page;
             $.ajax({
-                url : "http://localhost:3000/ranklist/getlist/",
+                url : "http://localhost:3000/api/ranklist/getlist/",
                 data : {
                     page,
                 },
@@ -75,18 +79,20 @@ export default{
                 }
             })
         }
-
-        pull_page(current_page);
+        pull_page(1);
+        setInterval(()=>{
+            pull_page(current_page.value);
+        }, 1000*60*5);
 
 
         const update_pages = () => {
-            let max_pages = parseInt(Math.ceil(total_users / 3));
+            let max_pages = parseInt(Math.ceil(total_users / 10));
             let new_pages = [];
-            for(let i = current_page - 2; i <= current_page + 2; i++){
+            for(let i = current_page.value - 2; i <= current_page.value + 2; i++){
                 if(i >= 1 && i <= max_pages){
                     new_pages.push({
                         number : i,
-                        is_active : i === current_page ? "active" : "",
+                        is_active : i === current_page.value ? "active" : "",
                     });
                 }
             }
@@ -95,9 +101,9 @@ export default{
 
 
         const click_page = page => {
-            if(page === -2) page = current_page - 1;
-            else if(page === -1) page = current_page + 1;
-            let max_pages = parseInt(Math.ceil(total_users / 3));
+            if(page === -2) page = current_page.value - 1;
+            else if(page === -1) page = current_page.value + 1;
+            let max_pages = parseInt(Math.ceil(total_users / 10));
             if(page >= 1 && page <= max_pages){
                 pull_page(page);
             }
@@ -107,6 +113,7 @@ export default{
             users,
             pages,
             click_page,
+            current_page,
         }
     }
 }
@@ -118,4 +125,5 @@ export default{
     width: 5vh;
     border-radius: 50%;
 }
+
 </style>

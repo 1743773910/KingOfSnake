@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-4">
                 <div class="user-photo">
-                    <img src="@/assets/images/paimeng.jpg" alt="" style="height: 26vh; width: 45%;">
+                    <img src="@/assets/images/paimeng.jpg" alt="" style="height: 26vh; width: 70%;">
                     <div class="user-username">{{ $store.state.user.botName }}</div>
                 </div>
             </div>
@@ -11,14 +11,13 @@
                 <div class="user-select-bot">
                     <select class="form-select" aria-label="Default select example" v-model="select_subbot">
                         <option selected value="-1">亲自上阵</option>
-                        <option  v-for="subbot in subbots" :key="subbot.id" :value="subbot.id">{{ subbot.subbotName }}</option>
-                        
+                        <option v-for="subbot in subbots" :key="subbot.id" :value="subbot.id">{{ subbot.subbotName }}</option>
                     </select>
                 </div>
             </div>
             <div class="col-4">
                 <div class="user-photo">
-                    <img src="@/assets/images/paimeng.jpg" alt="" style="height: 26vh; width: 45%;">
+                    <img src="@/assets/images/paimeng.jpg" alt="" style="height: 26vh; width: 70%;">
                     <div class="user-username">{{ $store.state.pk.opponent_username }}</div>
                 </div>
             </div>
@@ -64,17 +63,17 @@ export default{
 
         const refresh_subbots = () => {
             $.ajax({
-            url : "http://localhost:3000/user/subuser/querylist/",
-            type : "get",
-            headers : {
-                Authorization : "Bearer " + store.state.user.token,
-            },
-            success(resp){
-                subbots.value = resp;
-            },
-            error(resp){
-                console.log(resp);
-            }
+                url : "http://localhost:3000/api/user/subuser/querylist/",
+                type : "get",
+                headers : {
+                    Authorization : "Bearer " + store.state.user.token,
+                },
+                success(resp){
+                    subbots.value = resp;
+                },
+                error(resp){
+                    console.log(resp);
+                }
             })
         }
         refresh_subbots();

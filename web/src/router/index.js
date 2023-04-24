@@ -7,6 +7,13 @@ import BotIndexView from "@/views/user/bots/BotIndexView"
 import NotFund from "@/views/error/NotFund"
 import UserAccountLoginView from "@/views/user/account/UserAccountLoginView"
 import UserAccountRegisterView from "@/views/user/account/UserAccountRegisterView"
+import UserAccountLoginByPhoneView from "@/views/user/account/UserAccountLoginByPhoneView"
+import BindUserByPhoneView from "@/views/user/account/BindUserByPhoneView"
+import BotShoppingView from "@/views/ShoppingMall/BotShoppingView"
+import MyShoppingCartView from "@/views/ShoppingMall/MyShoppingCartView"
+import BotShoppingShowView from "@/views/ShoppingMall/BotShopShowView"
+import UserAccountKOBView from "@/views/user/account/UserAccountKOBView"
+import RoastView from "@/views/leavemessage/RoastView"
 import store from '@/store/index'
 
 
@@ -78,10 +85,66 @@ const routes = [
     }
   },
   {
+    path : "/user/account/loginByPhone/",
+    name : "user_account_loginByPhone",
+    component : UserAccountLoginByPhoneView,
+    meta: {
+      requestAuth : false,
+    }
+  },
+  {
+    path : "/user/account/bindUser/",
+    name : "user_account_bindUser",
+    component : BindUserByPhoneView,
+    meta : {
+      requestAuth : false,
+    }
+  },
+  {
+    path : "/shopping/botshop/",
+    name : "shopping_botshop",
+    component : BotShoppingView,
+    meta : {
+      requestAuth : true,
+    }
+  },
+  {
+    path : "/shopping/cart/",
+    name : "shopping_cart",
+    component : MyShoppingCartView,
+    meta : {
+      requestAuth : true,
+    }
+  },
+  {
+    path : "/shopping/object/:id/",
+    component : BotShoppingShowView,
+    meta : {
+        requestAuth : false,
+    }
+  },
+  {
+    path : "/user/account/KOB/",
+    name : "user_account_KOB",
+    component : UserAccountKOBView,
+    meta : {
+      requestAuth : true,
+    }
+  },
+  {
+    path : "/leavemessage/roast/",
+    name : "leavemessage_roast",
+    component : RoastView,
+    meta : {
+      requestAuth : true,
+    }
+  }
+  ,
+  {
     path:"/:catchAll(.*)",
     redirect:"/404/",
     meta: {
-      requestAuth: false,
+      requestAuth: true,
     }
   }
 ]
